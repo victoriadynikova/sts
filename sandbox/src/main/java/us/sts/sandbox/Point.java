@@ -1,3 +1,5 @@
+package us.sts.sandbox;
+
 public class Point {
 
     double x;

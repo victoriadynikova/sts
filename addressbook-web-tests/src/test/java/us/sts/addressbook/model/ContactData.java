@@ -1,4 +1,4 @@
-package us.sts.addressbook;
+package us.sts.addressbook.model;
 
 public class ContactData {
     private final String firstName;

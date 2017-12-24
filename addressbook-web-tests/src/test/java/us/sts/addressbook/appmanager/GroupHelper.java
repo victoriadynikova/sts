@@ -45,11 +45,15 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void selectContact() {
-        click(By.name("selected[]"));
+
+    public void groupCreation(GroupData group) {
+       initGroupCreation();
+       fillGroupForm(group);
+       submitGroupCreation();
+       returnToGroupPage();
     }
 
-    public void deleteSelectedContacts() {
-        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
     }
 }

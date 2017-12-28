@@ -12,7 +12,7 @@ public class GroupDeletionTests extends TestBase {
     public void testGroupDeletion() {
 
         app.getNavigationHelper().goToGroupPage();
-        if (! app.getGroupHelper().isThereAGroup()){
+        if (!app.getGroupHelper().isThereAGroup()) {
             app.getGroupHelper().groupCreation(new GroupData("test1", null, "test3"));
         }
         List<GroupData> before = app.getGroupHelper().getGroupList();
@@ -20,7 +20,10 @@ public class GroupDeletionTests extends TestBase {
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnToGroupPage();
         List<GroupData> after = app.getGroupHelper().getGroupList();
-        Assert.assertEquals(after.size(),before.size() - 1);
+        Assert.assertEquals(after.size(), before.size() - 1);
+
+        before.remove(before.size() - 1);
+        Assert.assertEquals(after, before);
     }
 
 }

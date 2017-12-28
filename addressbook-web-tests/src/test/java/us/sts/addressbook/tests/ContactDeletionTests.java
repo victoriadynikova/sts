@@ -11,11 +11,10 @@ import java.util.List;
 public class ContactDeletionTests extends TestBase {
 
 
-
     @Test
-    public void testContactDeletion(){
+    public void testContactDeletion() {
         app.getNavigationHelper().goToHomePage();
-        if (! app.getContactHelper().isThereAContact()){
+        if (!app.getContactHelper().isThereAContact()) {
             app.getNavigationHelper().goToNewContactPage();
             app.getContactHelper().contactCreation(new ContactData("Name", "Middle", "Last", "Nick", "user", "Company", "Moscow Prospect Mira 44 ", "+11111110000", "test@test.com", "test1"));
             app.getNavigationHelper().goToHomePage();
@@ -26,7 +25,10 @@ public class ContactDeletionTests extends TestBase {
         app.getWebDriver().switchTo().alert().accept();
         app.getNavigationHelper().goToHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
-        Assert.assertEquals(after.size(),before.size() - 1);
+        Assert.assertEquals(after.size(), before.size() - 1);
+
+        before.remove(before.size() - 1);
+        Assert.assertEquals(after, before);
     }
 
 

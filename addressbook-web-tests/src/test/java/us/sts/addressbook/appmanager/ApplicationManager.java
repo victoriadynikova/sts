@@ -27,16 +27,16 @@ public class ApplicationManager {
 
     public void init() {
 
-        if(browser.equals(BrowserType.FIREFOX)){
+        if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
 
-        }else if(browser.equals(BrowserType.CHROME)) {
+        } else if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
 
-        }else if(browser.equals(BrowserType.SAFARI)) {
+        } else if (browser.equals(BrowserType.SAFARI)) {
             wd = new SafariDriver(new SafariOptions().setUseTechnologyPreview(true));
 
-        } else if(browser.equals(BrowserType.HTMLUNIT)) {
+        } else if (browser.equals(BrowserType.HTMLUNIT)) {
             wd = new HtmlUnitDriver();
         }
 

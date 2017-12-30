@@ -1,5 +1,7 @@
 package us.sts.addressbook.model;
 
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
+
 import java.util.Objects;
 
 public class ContactData {
@@ -13,9 +15,16 @@ public class ContactData {
     private String title;
     private String company;
     private String address;
-    private String mobilePhoneNumber;
+    private String mobilePhone;
+    private String homePhone;
+    private String workPhone;
     private String email1;
+    private String email2;
+    private String email3;
     private String group;
+
+    private String allPhones;
+    private String allEmails;
 
 
     public int getId() {
@@ -50,37 +59,34 @@ public class ContactData {
         return address;
     }
 
-    public String getMobilePhoneNumber() {
-        return mobilePhoneNumber;
-    }
+    public String getMobilePhone() { return mobilePhone; }
+
+    public String getWorkPhone() { return workPhone; }
+
+    public String getHomePhone() { return homePhone; }
 
     public String getEmail1() {
         return email1;
     }
 
+    public String getEmail2() { return email2; }
+
+    public String getEmail3() { return email3; }
+
+    public String getAllEmails() { return allEmails; }
+
+
     public String getGroup() {
         return group;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
     }
 
     public ContactData withId(int id) {
         this.id = id;
         return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, firstName, lastName);
     }
 
     public ContactData withFirstName(String firstName) {
@@ -118,8 +124,19 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withMobilePhoneNumber(String mobilePhoneNumber) {
-        this.mobilePhoneNumber = mobilePhoneNumber;
+    public ContactData withMobilePhone(String mobilePhoneNumber) {
+        this.mobilePhone = mobilePhoneNumber;
+        return this;
+    }
+
+    public ContactData withHomePhone(String homeNumber) {
+        this.homePhone = homeNumber;
+        return this;
+    }
+
+
+    public ContactData withWorkPhone(String workNumber) {
+        this.workPhone = workNumber;
         return this;
     }
 
@@ -128,8 +145,28 @@ public class ContactData {
         return this;
     }
 
+    public ContactData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public ContactData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
+    public ContactData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
+        return this;
+    }
+
     public ContactData withGroup(String group) {
         this.group = group;
+        return this;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
         return this;
     }
 
@@ -142,4 +179,21 @@ public class ContactData {
                 ", group='" + group + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, firstName, lastName);
+    }
+
 }

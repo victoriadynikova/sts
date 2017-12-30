@@ -18,7 +18,7 @@ public class ContactDeletionTests extends TestBase {
             app.goTo().newContactPage();
             app.contact().creation(new ContactData().withFirstName("Name").withMiddleName("Middle").withLastName("Last")
                     .withNickname("Nick").withTitle("user").withCompany("Company").withAddress("Moscow Prospect Mira 44 ")
-                    .withMobilePhoneNumber("+11111110000").withEmail1("test@test.com"));
+                    .withMobilePhone("+11111110000").withEmail1("test@test.com"));
             app.goTo().homePage();
         }
     }
@@ -33,9 +33,9 @@ public class ContactDeletionTests extends TestBase {
         app.contact().delete();
         app.getWebDriver().switchTo().alert().accept();
         app.goTo().homePage();
-        Set<ContactData> after = app.contact().all();
-        assertThat(after.size(), equalTo(before.size() - 1));
+        assertThat(app.contact().count(), equalTo(before.size() - 1));
 
+        Set<ContactData> after = app.contact().all();
         before.remove(deletedContact);
         assertThat(after, equalTo(before));
     }

@@ -5,7 +5,7 @@ import com.google.common.collect.ForwardingSet;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Groups extends ForwardingSet <GroupData> {
+public class Groups extends ForwardingSet<GroupData> {
 
     Set<GroupData> delegate;
 
@@ -32,9 +32,8 @@ public class Groups extends ForwardingSet <GroupData> {
     }
 
 
-
     @Override
-    protected Set <GroupData> delegate() {
+    protected Set<GroupData> delegate() {
         return delegate;
     }
 

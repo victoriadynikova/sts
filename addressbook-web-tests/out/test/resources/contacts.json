@@ -12,8 +12,7 @@
     "workPhone": "33 33",
     "email1": "test@test.com",
     "email2": "a_jkfdg@gmail.com",
-    "email3": "q.q.d@mnf.ru",
-    "photo": {}
+    "email3": "q.q.d@mnf.ru"
   },
   {
     "firstName": "name 1",
@@ -28,8 +27,7 @@
     "workPhone": "33 33",
     "email1": "test@test.com",
     "email2": "a_jkfdg@gmail.com",
-    "email3": "q.q.d@mnf.ru",
-    "photo": {}
+    "email3": "q.q.d@mnf.ru"
   },
   {
     "firstName": "name 2",
@@ -44,7 +42,6 @@
     "workPhone": "33 33",
     "email1": "test@test.com",
     "email2": "a_jkfdg@gmail.com",
-    "email3": "q.q.d@mnf.ru",
-    "photo": {}
+    "email3": "q.q.d@mnf.ru"
   }
 ]

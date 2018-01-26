@@ -20,10 +20,10 @@ public class ContactDataGenerator {
     @Parameter(names = "-c", description = "Contact count")
     public int count;
 
-    @Parameter (names = "-f", description = "Target file")
+    @Parameter(names = "-f", description = "Target file")
     public String file;
 
-    @Parameter (names = "-d", description = "Data format")
+    @Parameter(names = "-d", description = "Data format")
     public String format;
 
     public static void main(String[] args) throws IOException {
@@ -32,37 +32,34 @@ public class ContactDataGenerator {
         JCommander jCommander = new JCommander(generator);
         try {
             jCommander.parse(args);
-        } catch (ParameterException ex){
+        } catch (ParameterException ex) {
             jCommander.usage();
         }
 
         generator.run();
 
 
-        
     }
 
     private void run() throws IOException {
         List<ContactData> contacts = generateContacts(count);
-        if(format.equals("csv")){
-            saveAsCsv(contacts,new File(file));
-        }else if (format.equals("xml")){
-            saveAsXml(contacts,new File(file));
-        }else if (format.equals("json")) {
+        if (format.equals("csv")) {
+            saveAsCsv(contacts, new File(file));
+        } else if (format.equals("xml")) {
+            saveAsXml(contacts, new File(file));
+        } else if (format.equals("json")) {
             saveAsJson(contacts, new File(file));
-        }else {
+        } else {
             System.out.println("Unrecognized format " + format);
         }
     }
 
 
-
     private List<ContactData> generateContacts(int count) {
-        List <ContactData> contacts = new ArrayList<>();
-        for (int i = 0; i<count;i++)
-        {
-            contacts.add(new ContactData().withFirstName(String.format("name %s",i)).withMiddleName("Middle").
-                    withLastName(String.format("Last %s",i)).withNickname("Nick").withTitle("user")
+        List<ContactData> contacts = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            contacts.add(new ContactData().withFirstName(String.format("name %s", i)).withMiddleName("Middle").
+                    withLastName(String.format("Last %s", i)).withNickname("Nick").withTitle("user")
                     .withCompany("Company").withAddress("Moscow Prospect Mira 44 ").withHomePhone("1-1")
                     .withMobilePhone("(11)111110000").withWorkPhone("33 33").withEmail1("test@test.com")
                     .withEmail2("a_jkfdg@gmail.com").withEmail3("q.q.d@mnf.ru"));
@@ -74,7 +71,7 @@ public class ContactDataGenerator {
     private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
         System.out.println(new File(".").getAbsolutePath());
         Writer writer = new FileWriter(file);
-        for (ContactData contact: contacts){
+        for (ContactData contact : contacts) {
             writer.write(String.format("%s;%s\n", contact.getFirstName(), contact.getLastName()));
         }
         writer.close();

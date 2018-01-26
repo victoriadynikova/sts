@@ -8,7 +8,10 @@ import org.testng.annotations.Test;
 import us.sts.addressbook.model.GroupData;
 import us.sts.addressbook.model.Groups;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,14 +27,14 @@ public class GroupCreationTests extends TestBase {
         String line = reader.readLine();
         String xml = new String("");
 
-        while (line != null){
+        while (line != null) {
             xml += line;
             line = reader.readLine();
         }
         XStream xstream = new XStream();
         xstream.processAnnotations(GroupData.class);
         List<GroupData> groups = (List<GroupData>) xstream.fromXML(xml);
-        return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+        return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
     }
 
     @DataProvider
@@ -39,26 +42,27 @@ public class GroupCreationTests extends TestBase {
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
         String line = reader.readLine();
         String json = new String("");
-        while (line != null){
+        while (line != null) {
             json += line;
             line = reader.readLine();
         }
         Gson gsone = new Gson();
-        List <GroupData> groups = gsone.fromJson(json,new TypeToken<List<GroupData>>(){}.getType()); // List<GroupData>.class
-        return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+        List<GroupData> groups = gsone.fromJson(json, new TypeToken<List<GroupData>>() {
+        }.getType()); // List<GroupData>.class
+        return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
     }
 
-    @Test (dataProvider = "validGroupsFromJson")
+    @Test(dataProvider = "validGroupsFromJson")
     public void testGroupCreation(GroupData group) {
 
-            app.goTo().groupPage();
-            Groups before = app.group().all();
-            app.group().create(group);
-            assertThat(app.group().count(), equalTo(before.size() + 1));
+        app.goTo().groupPage();
+        Groups before = app.group().all();
+        app.group().create(group);
+        assertThat(app.group().count(), equalTo(before.size() + 1));
 
-            Groups after = app.group().all();
-            assertThat(after, equalTo(before.
-                    withAdded(group.withId(after.stream().mapToInt(g -> g.getId()).max().getAsInt()))));
+        Groups after = app.group().all();
+        assertThat(after, equalTo(before.
+                withAdded(group.withId(after.stream().mapToInt(g -> g.getId()).max().getAsInt()))));
 
     }
 

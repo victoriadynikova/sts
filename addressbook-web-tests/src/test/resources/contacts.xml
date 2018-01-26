@@ -1,0 +1,14 @@
+<list>
+  <us.sts.addressbook.model.ContactData>
+    <firstName>first 0</firstName>
+    <lastName>last 0</lastName>
+  </us.sts.addressbook.model.ContactData>
+  <us.sts.addressbook.model.ContactData>
+    <firstName>first 1</firstName>
+    <lastName>last 1</lastName>
+  </us.sts.addressbook.model.ContactData>
+  <us.sts.addressbook.model.ContactData>
+    <firstName>first 2</firstName>
+    <lastName>last 2</lastName>
+  </us.sts.addressbook.model.ContactData>
+</list>

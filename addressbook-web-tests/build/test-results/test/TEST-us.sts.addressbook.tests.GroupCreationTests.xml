@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="us.sts.addressbook.tests.GroupCreationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-01-29T23:57:50" hostname="Alexanders-MacBook-Pro.local" time="5.491">
+  <properties/>
+  <testcase name="testGroupCreation[0](GroupData{id=2147483647, name='nameNAME 0'})" classname="us.sts.addressbook.tests.GroupCreationTests" time="2.134"/>
+  <testcase name="testGroupCreation[1](GroupData{id=2147483647, name='nameNAME 1'})" classname="us.sts.addressbook.tests.GroupCreationTests" time="1.738"/>
+  <testcase name="testGroupCreation[2](GroupData{id=2147483647, name='nameNAME 2'})" classname="us.sts.addressbook.tests.GroupCreationTests" time="1.618"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

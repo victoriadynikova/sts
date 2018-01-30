@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="us.sts.addressbook.tests.GroupDeletionTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-01-29T23:57:58" hostname="Alexanders-MacBook-Pro.local" time="0.779">
+  <properties/>
+  <testcase name="testGroupDeletion" classname="us.sts.addressbook.tests.GroupDeletionTests" time="0.779"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="us.sts.addressbook.tests.ContactCreationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-01-29T23:57:59" hostname="Alexanders-MacBook-Pro.local" time="17.43">
+  <properties/>
+  <testcase name="testContactCreation[0](ContactData{id=2147483647, firstName='name 0', lastName='Last 0', group='null'})" classname="us.sts.addressbook.tests.ContactCreationTests" time="7.327"/>
+  <testcase name="testContactCreation[1](ContactData{id=2147483647, firstName='name 1', lastName='Last 1', group='null'})" classname="us.sts.addressbook.tests.ContactCreationTests" time="4.852"/>
+  <testcase name="testContactCreation[2](ContactData{id=2147483647, firstName='name 2', lastName='Last 2', group='null'})" classname="us.sts.addressbook.tests.ContactCreationTests" time="5.25"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

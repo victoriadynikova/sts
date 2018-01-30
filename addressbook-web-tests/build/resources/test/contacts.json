@@ -1,0 +1,47 @@
+[
+  {
+    "firstName": "name 0",
+    "middleName": "Middle",
+    "lastName": "Last 0",
+    "nickname": "Nick",
+    "title": "user",
+    "company": "Company",
+    "address": "Moscow Prospect Mira 44 ",
+    "mobilePhone": "(11)111110000",
+    "homePhone": "1-1",
+    "workPhone": "33 33",
+    "email1": "test@test.com",
+    "email2": "a_jkfdg@gmail.com",
+    "email3": "q.q.d@mnf.ru"
+  },
+  {
+    "firstName": "name 1",
+    "middleName": "Middle",
+    "lastName": "Last 1",
+    "nickname": "Nick",
+    "title": "user",
+    "company": "Company",
+    "address": "Moscow Prospect Mira 44 ",
+    "mobilePhone": "(11)111110000",
+    "homePhone": "1-1",
+    "workPhone": "33 33",
+    "email1": "test@test.com",
+    "email2": "a_jkfdg@gmail.com",
+    "email3": "q.q.d@mnf.ru"
+  },
+  {
+    "firstName": "name 2",
+    "middleName": "Middle",
+    "lastName": "Last 2",
+    "nickname": "Nick",
+    "title": "user",
+    "company": "Company",
+    "address": "Moscow Prospect Mira 44 ",
+    "mobilePhone": "(11)111110000",
+    "homePhone": "1-1",
+    "workPhone": "33 33",
+    "email1": "test@test.com",
+    "email2": "a_jkfdg@gmail.com",
+    "email3": "q.q.d@mnf.ru"
+  }
+]

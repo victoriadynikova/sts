@@ -2,50 +2,99 @@ package us.sts.addressbook.model;
 
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+
+@Entity
+@Table (name = "addressbook")
 public class ContactData {
 
+
     @XStreamOmitField
+    @Id
+    @Column (name = "id")
     private int id = Integer.MAX_VALUE;
+
     @Expose
+    @Column (name = "firstname")
     private String firstName;
+
     @Expose
+    @Column (name = "middlename")
     private String middleName;
+
     @Expose
+    @Column (name = "lastname")
     private String lastName;
+
     @Expose
+    @Column (name = "nickname")
     private String nickname;
+
     @Expose
+    @Column (name = "title")
     private String title;
+
     @Expose
+    @Column (name = "company")
     private String company;
+
     @Expose
+    @Column (name = "address")
+    @Type(type = "text")
     private String address;
+
     @Expose
+    @Column (name = "mobile")
+    @Type(type = "text")
     private String mobilePhone;
+
     @Expose
+    @Column (name = "home")
+    @Type(type = "text")
     private String homePhone;
+
     @Expose
+    @Column (name = "work")
+    @Type(type = "text")
     private String workPhone;
+
     @Expose
+    @Column (name = "email")
+    @Type(type = "text")
     private String email1;
+
     @Expose
+    @Column (name = "email2")
+    @Type(type = "text")
     private String email2;
+
     @Expose
+    @Column (name = "email3")
+    @Type(type = "text")
     private String email3;
+
     @Expose
+    @Transient
     private String group;
+
     @Expose
+    @Transient
     private String allPhones;
+
     @Expose
+    @Transient
     private String allEmails;
 
     @Expose
-    private File photo;
+    @Column (name = "photo")
+    @Type(type = "text")
+    private String photo;
 
 
     public int getId() {
@@ -117,8 +166,33 @@ public class ContactData {
         return allPhones;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(middleName, that.middleName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(nickname, that.nickname) &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(company, that.company) &&
+                Objects.equals(address, that.address) &&
+                Objects.equals(mobilePhone, that.mobilePhone) &&
+                Objects.equals(homePhone, that.homePhone) &&
+                Objects.equals(workPhone, that.workPhone) &&
+                Objects.equals(group, that.group);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, firstName, middleName, lastName, nickname, title, company, address, mobilePhone, homePhone, workPhone, group);
+    }
+
     public File getPhoto() {
-        return photo;
+        return new File(photo);
     }
 
     public ContactData withId(int id) {
@@ -208,7 +282,7 @@ public class ContactData {
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -220,22 +294,6 @@ public class ContactData {
                 ", lastName='" + lastName + '\'' +
                 ", group='" + group + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, firstName, lastName);
     }
 
 }

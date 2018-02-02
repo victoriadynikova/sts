@@ -1,16 +1,16 @@
 [
   {
-    "name": "nameNAME 0",
+    "name": "nameNAME0",
     "header": "header 0",
     "footer": "footer 0"
   },
   {
-    "name": "nameNAME 1",
+    "name": "nameNAME1",
     "header": "header 1",
     "footer": "footer 1"
   },
   {
-    "name": "nameNAME 2",
+    "name": "nameNAME2",
     "header": "header 2",
     "footer": "footer 2"
   }

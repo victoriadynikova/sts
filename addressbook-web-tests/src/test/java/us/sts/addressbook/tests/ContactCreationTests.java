@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import us.sts.addressbook.model.ContactData;
 import us.sts.addressbook.model.Contacts;
+import us.sts.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -55,8 +56,9 @@ public class ContactCreationTests extends TestBase {
     }
 
     @Test(dataProvider = "validContactsFromJson")
-    public void testContactCreation(ContactData contact) {
+    public static void testContactCreation(ContactData contact) {
         // File photo = new File("src/test/resources/avatar.png");
+        Groups groups = app.db().groups();
         Contacts before = app.db().contacts();
         app.goTo().newContactPage();
         app.contact().creation(contact);
@@ -66,6 +68,7 @@ public class ContactCreationTests extends TestBase {
         Contacts after = app.db().contacts();
         assertThat(after, equalTo(before.
                 withAdded(contact.withId(after.stream().mapToInt(c -> c.getId()).max().getAsInt()))));
+        verifyGroupListInUI();
     }
 
     @Test(enabled = false)

@@ -38,11 +38,11 @@ public class ContactModificationTests extends TestBase {
         app.goTo().homePage();
         assertThat(app.contact().count(), equalTo(before.size()));
 
-        //Set<ContactData> after = app.contact().all();
         Set<ContactData> after = app.db().contacts();
         before.remove(modifiedContact);
         before.add(contact);
         assertThat(after, equalTo(before));
+        verifyGroupListInUI();
     }
 
 

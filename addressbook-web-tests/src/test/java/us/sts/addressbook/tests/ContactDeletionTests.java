@@ -37,6 +37,7 @@ public class ContactDeletionTests extends TestBase {
         Set<ContactData> after = app.db().contacts();
         before.remove(deletedContact);
         assertThat(after, equalTo(before));
+        verifyGroupListInUI();
     }
 
 

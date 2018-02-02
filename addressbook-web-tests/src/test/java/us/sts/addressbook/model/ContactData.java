@@ -7,7 +7,9 @@ import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
@@ -81,10 +83,6 @@ public class ContactData {
 
     @Expose
     @Transient
-    private String group;
-
-    @Expose
-    @Transient
     private String allPhones;
 
     @Expose
@@ -96,6 +94,10 @@ public class ContactData {
     @Type(type = "text")
     private String photo;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
 
     public int getId() {
         return id;
@@ -158,13 +160,14 @@ public class ContactData {
     }
 
 
-    public String getGroup() {
-        return group;
-    }
-
     public String getAllPhones() {
         return allPhones;
     }
+
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -181,14 +184,14 @@ public class ContactData {
                 Objects.equals(address, that.address) &&
                 Objects.equals(mobilePhone, that.mobilePhone) &&
                 Objects.equals(homePhone, that.homePhone) &&
-                Objects.equals(workPhone, that.workPhone) &&
-                Objects.equals(group, that.group);
+                Objects.equals(workPhone, that.workPhone);
     }
+
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, firstName, middleName, lastName, nickname, title, company, address, mobilePhone, homePhone, workPhone, group);
+        return Objects.hash(id, firstName, middleName, lastName, nickname, title, company, address, mobilePhone, homePhone, workPhone);
     }
 
     public File getPhoto() {
@@ -271,10 +274,6 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withGroup(String group) {
-        this.group = group;
-        return this;
-    }
 
     public ContactData withAllPhones(String allPhones) {
         this.allPhones = allPhones;
@@ -286,14 +285,17 @@ public class ContactData {
         return this;
     }
 
+    public ContactData inGroup(GroupData group){
+        groups.add(group);
+        return this;
+    }
+
     @Override
     public String toString() {
         return "ContactData{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", group='" + group + '\'' +
-                '}';
+                ", lastName='" + lastName + '\''+ '}';
     }
 
 }

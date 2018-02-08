@@ -3,9 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="Groups" >
         <classes>
-            <class name="us.sts.addressbook.tests.GroupCreationTests" />
             <class name="us.sts.addressbook.tests.GroupModificationTests" />
-            <class name="us.sts.addressbook.tests.GroupDeletionTests" />
         </classes>
     </test>
 </suite>

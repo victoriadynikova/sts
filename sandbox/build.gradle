@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = "us/sts/sandboxMyFirstProgram"
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.testng:testng:6.13.1'
+}
+
+ test() {
+    useTestNG ()
+}

@@ -3,9 +3,6 @@ package us.sts.sandbox;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-
 public class DistanceTests {
 
     @Test
